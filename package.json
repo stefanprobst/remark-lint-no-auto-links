@@ -1,0 +1,41 @@
+{
+  "name": "@stefanprobst/remark-lint-no-auto-links",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "engines": {
+    "node": ">=12.9",
+    "yarn": "1.x"
+  },
+  "scripts": {
+    "format": "prettier . --check --ignore-path .gitignore",
+    "format:fix": "yarn format --write",
+    "test": "jest"
+  },
+  "dependencies": {
+    "unified-lint-rule": "^1.0.6",
+    "unist-util-generated": "^1.1.6",
+    "unist-util-position": "^3.1.0",
+    "unist-util-visit": "^2.0.3"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.1",
+    "@commitlint/config-conventional": "^12.1.1",
+    "@stefanprobst/commitlint-config": "^1.0.1",
+    "@stefanprobst/prettier-config": "^1.0.1",
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1",
+    "remark": "^13.0.0",
+    "remark-lint": "^8.0.0",
+    "simple-git-hooks": "^2.3.1"
+  },
+  "commitlint": {
+    "extends": "@stefanprobst/commitlint-config"
+  },
+  "prettier": "@stefanprobst/prettier-config",
+  "simple-git-hooks": {
+    "commit-msg": "yarn commitlint --edit",
+    "pre-commit": "yarn run format:fix",
+    "pre-push": "yarn run test"
+  }
+}
