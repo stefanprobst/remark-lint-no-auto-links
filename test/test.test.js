@@ -1,8 +1,8 @@
-const fs = require('fs')
-const path = require('path')
-const remark = require('remark')
-const lint = require('remark-lint')
-const noAutoLinks = require('../src')
+import * as fs from 'fs'
+import * as path from 'path'
+import { remark } from 'remark'
+import lint from 'remark-lint'
+import noAutoLinks from '../src'
 
 const processor = remark().use(lint).use(noAutoLinks)
 
